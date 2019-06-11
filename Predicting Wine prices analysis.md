@@ -17,6 +17,7 @@ $ Age        : int  31 30 28 26 25 24 23 22 21 20 ...
 $ FrancePop  : num  43184 43495 44218 45152 45654 ...
 
 # summary of data
+![Wine data summary](https://user-images.githubusercontent.com/46609482/59311989-39718200-8c60-11e9-8c59-809b80287d3b.PNG)
 
 # linear model with one predictor/regressor AGST
 ![lm with one predictor](https://user-images.githubusercontent.com/46609482/59311893-f57e7d00-8c5f-11e9-99f7-dd2f11459b0e.PNG)
