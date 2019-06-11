@@ -18,3 +18,5 @@ $ FrancePop  : num  43184 43495 44218 45152 45654 ...
 
 # summary of data
 
+# linear model with one predictor/regressor AGST
+![lm with one predictor](https://user-images.githubusercontent.com/46609482/59311893-f57e7d00-8c5f-11e9-99f7-dd2f11459b0e.PNG)
