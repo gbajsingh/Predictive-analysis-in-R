@@ -29,7 +29,7 @@ Computed SSE(Sum of Squared Errors) of this model to compare with other linear m
 # Linear model with two regressors/predictors AGST & Harvest Rain
 ![lm with two predictors](https://user-images.githubusercontent.com/46609482/59312601-9110ed00-8c62-11e9-8f75-22b1ad0523cb.PNG)
 
-Adding another predictor has raised the R^2 and Adjusted R^2 as well as both predictors are still significant.
+Adding another predictor has raised the R^2(i.e. how much variation in dependent variable explained by variation in independent variable/predictor/regressor) and Adjusted R^2 as well as both predictors are still significant.
 Computed SSE for this model is reduced to 2.970373 which is another improvement.
 
 # Linear model with all the predictors
@@ -37,4 +37,10 @@ Computed SSE for this model is reduced to 2.970373 which is another improvement.
 
 Both R^2 and Adjuted R^2 has raised again but having most of the predictors not significant. Which suggest the model might be overfitting.
 Computed SSE is reduced to 1.732113
+
+# Linear Model without insignificant variables to improve the model
+![lm without insignificant predictors](https://user-images.githubusercontent.com/46609482/59313118-8192a380-8c64-11e9-8371-0c3e134b602c.PNG)
+Notice Multiple R-squared and Adjusted R-squared went down.
+
+# Linear Model with only FrancePOP ingnificant variable removed and AGE predictor added
 
