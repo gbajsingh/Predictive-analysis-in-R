@@ -33,3 +33,8 @@ Adding another predictor has raised the R^2 and Adjusted R^2 as well as both pre
 Computed SSE for this model is reduced to 2.970373 which is another improvement.
 
 # Linear model with all the predictors
+![lm with all the predictors](https://user-images.githubusercontent.com/46609482/59312841-696e5480-8c63-11e9-8ca5-f3df2c53b288.PNG)
+
+Both R^2 and Adjuted R^2 has raised again but having most of the predictors not significant. Which suggest the model might be overfitting.
+Computed SSE is reduced to 1.732113
+
