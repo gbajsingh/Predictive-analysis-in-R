@@ -27,4 +27,9 @@ Here regressor/predictor AGST is very significant in predicting depending variab
 Computed SSE(Sum of Squared Errors) of this model to compare with other linear models is 5.734875
 
 # Linear model with two regressors/predictors AGST & Harvest Rain
+![lm with two predictors](https://user-images.githubusercontent.com/46609482/59312601-9110ed00-8c62-11e9-8f75-22b1ad0523cb.PNG)
 
+Adding another predictor has raised the R^2 and Adjusted R^2 as well as both predictors are still significant.
+Computed SSE for this model is reduced to 2.970373 which is another improvement.
+
+# Linear model with all the predictors
