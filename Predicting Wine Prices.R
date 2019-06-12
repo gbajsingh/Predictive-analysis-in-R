@@ -1,4 +1,3 @@
-```
 # wine data
 wine = read.csv("wine.csv")
 
@@ -223,4 +222,4 @@ SSE = sum((wineTest$Price - predictTest)^2)
 SST = sum((wineTest$Price - mean(wine$Price))^2)
 1 - SSE/SST
 [1] 0.7944278
-```
+
