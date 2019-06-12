@@ -51,7 +51,8 @@ Notice Age is significant now and Adjusted R-squared went up compare to Adjusted
 Adding one of the predictor from Age & FrancePop makes the predictors in Linear Model significant but adding both makes most of the predictors insignificant. This is because Age & FrancePop are highly correlated. Multicollinearity issue!
 
 Correlation among variables of Wine data
-![correlation wine data](https://user-images.githubusercontent.com/46609482/59315517-e6eb9200-8c6e-11e9-8002-c9d51ca34ddb.PNG)
+![cor wine data](https://user-images.githubusercontent.com/46609482/59378403-15b64680-8d09-11e9-8ba1-690d9e8c1000.PNG)
+
 
 # Predicting on Test Data
 
