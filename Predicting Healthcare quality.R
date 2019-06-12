@@ -29,17 +29,12 @@ summary(QualityLog)
 # predicting on the training data
 predictTrain = predict(QualityLog, type = "response") # type = 'response' arguments tells the function that we want probabilities of predicting the value 1(i.e. P(y=1)) 
 
-# to see the average/mean probability in predicting  if we're predicting actual value 1(i.e. in our case actual poor cases) with higher probability
-# we use tapply() to first categorized the predicted probalilities with 1(i.e. actual poor cases) & 0(i.e. actual good cases) and then see the average of each case
+# tapply() to see the average/mean probability in predicting value"1"(i.e poor quality) & value"0"(i.e. not poor quality)
 tapply(predictTrain, qualityTrain$PoorCare, mean)
-        0         1 
-0.1894512 0.4392246
-# ^so we predicted value 1(i.e. poor cases) with higher probaility than baseline method(i.e. accuracy of 0.25 or 25% in predicting value 1 or PoorCare)
-# meaning we predicted the value 1 with sort of higher power/certainty
 
 
 
-# Assesing the accuracy of predictions by creating confusion matrices at various thresh-hold values
+# Assesing the accuracy of predictions on training set by creating confusion matrices at various thresh-hold values
 # Sensitivity(i.e. True Pos. rate) = TP/(TP+FP)
 # Specificity(i.e. True Neg. rate) = TN/(TN+FN)
 
