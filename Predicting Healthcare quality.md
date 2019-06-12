@@ -12,10 +12,10 @@ accuracy of baseline model to comapare it with logistic regression model later
 Since 75% of 131 patients are value "0" or not received not PoorCare, 25% of 131 patients are value "1" or recieved poor care.
 therefore, baseline model has an accuracy of 75% in predicting value "0" and 25% in predicting value "1"
 
-# Logistic regression model with predictors OfficeVisits & Narcotics trained on training set(splitted the data randomly into training and testing set) 
+# Logistic regression model with predictor officeVisits & narcotics trained on training set(Priorly splitted the data randomly into training and testing set) 
 ![log model with two predictors](https://user-images.githubusercontent.com/46609482/59384078-35a03700-8d16-11e9-8262-1e2fba9b0aeb.PNG)
 
-Notice, both of the predictors/regressors are significant in the model.
+Notice both of the predictors/regressors are significant in the model.
 
 # Logistic regression model does better than Baseline model in predicting value"1" or patient who recieved poor care
 
@@ -25,7 +25,7 @@ Comparing actual outcome of Poor care Variable(i.e. 0 & 1) with predicted probab
 
 Therefore this logistic regression model with predictor OfficeVisits & Narcotics predicted the value"1" with 43% power/certainty as compare to baseline method which had 25% accuracy in predicting value "1".
 
-# Assesing the accuracy of the logistic model on training set with different threshold values by creating confusion matrix
+# Assesing the accuracy of the logistic model on training set with different thresh-hold values by creating confusion matrix
 ![accuracy at different Thresholds](https://user-images.githubusercontent.com/46609482/59387626-83b93880-8d1e-11e9-83c6-d80712feba8d.PNG)
 
 ![threshold at 0 2](https://user-images.githubusercontent.com/46609482/59387694-ac413280-8d1e-11e9-85ae-72f24856e40c.PNG)
@@ -40,12 +40,12 @@ Around the thresh-hold value of 3.0 seems like a good value with reasonable fals
 
 AUC of 0.77 means the model will predict the right outcome 77% of times as compare to purely guessing which would've AUC of 50%[since "0" & "1" are 2 outcomes, guessing would've 1/2 or 50-50 chance]
 
-# Now predicting "Poor Care"(the dependent variable) on Test set
+# Now predicting "Poor Care"(the dependent variable) on the test set
 
 confusion matrix of predicted values vs actual outcomes of test data at 0.3 thresh-hold value
 ![pred on testset](https://user-images.githubusercontent.com/46609482/59391520-6342ab80-8d29-11e9-993b-3c7f24f21739.PNG)
 
-# Computed AUC(Area under the Curve) to asses the strength of the model on Test set
+# Computed AUC(Area under the Curve) to asses the strength of the model on the test set
 ![auc on test set](https://user-images.githubusercontent.com/46609482/59391678-ecf27900-8d29-11e9-802b-22172058c9a0.PNG)
 
 AUC of 0.79 means the model will predict the right outcome 79% of times as compare to purely guessing which would've AUC of 50%[since "0" & "1" are 2 outcomes, guessing would've 1/2 or 50-50 chance]
