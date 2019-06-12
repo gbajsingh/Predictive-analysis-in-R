@@ -199,8 +199,10 @@ Age         -1.00000000  0.4477679 -0.016970024  0.24691585 -0.02800907  1.00000
 FrancePop    0.99448510 -0.4668616 -0.001621627 -0.25916227  0.04126439 -0.99448510  1.000000000
 
 # now for the prediction test read test data
-> wineTest = read.csv("wine_test.csv")
-> str(wineTest)
+wineTest = read.csv("wine_test.csv")
+
+str(wineTest)
+# output
 'data.frame':	2 obs. of  7 variables:
   $ Year       : int  1979 1980
 $ Price      : num  6.95 6.5
