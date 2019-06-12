@@ -9,12 +9,9 @@ quality = read.csv("quality.csv")
 # strucuture of data
 str(quality)
 
-# to compare the accuracy of predictions of a baseline model with logistic regression model, we take the average of most frequent outcome of the dependent variable
+
+# to view how many patients received poor(i.e. 1) vs good(i.e. 0) care
 table(quality$PoorCare)
- 0  1 
-98 33
-98/(98+33)
-[1] 0.748091 
 
 # split the data randomally into training & test set by setting the split ratio
 split = sample.split(quality$PoorCare, SplitRatio = 0.75)
@@ -57,7 +54,7 @@ table(qualityTrain$PoorCare, predictTrain > 0.2)
 
 
 
-# to visualise the different thresh-hold values we can create ROC(Receiver Operator Characteristic) Curve: 
+# to visualise the different thresh-hold values we can plot ROC(Receiver Operator Characteristic) Curve: 
 # Where x-axis is False Pos. rate(i.e.1- specificity) and y-axis is True Pos. rate(i.e.sensitivity)
 # Higher Threshhold(i.e closer to (0,0)): low senstivity & high specificity
 # Lower Threshhold(i.e. closer to (1,1)): high sensitivity & low specificity
@@ -84,7 +81,7 @@ auc = as.numeric(performance(ROCRpredTrain, "auc")@y.values)
 # Now to predict the dependent varaible(i.e. PoorCare) on the test data
 predictTest = predict(QualityLog, type="response", newdata = qualityTest)
 
-# creating confusionmatrix at thresh-hold value of 0.3
+# creating confusion matrix at thresh-hold value of 0.3
 table(qualityTest$PoorCare, predictTest > 0.3)
 
 # to calculate AUC set the ROC by using prediction()
