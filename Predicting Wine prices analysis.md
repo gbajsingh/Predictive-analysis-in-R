@@ -42,5 +42,27 @@ Computed SSE is reduced to 1.732113
 ![lm without insignificant predictors](https://user-images.githubusercontent.com/46609482/59313118-8192a380-8c64-11e9-8371-0c3e134b602c.PNG)
 Notice Multiple R-squared and Adjusted R-squared went down.
 
-# Linear Model with only FrancePOP ingnificant variable removed and AGE predictor added
+# Linear Model with FrancePop ingnificant variable removed and AGE predictor added
+![Lm with AGE variable added](https://user-images.githubusercontent.com/46609482/59313483-092ce200-8c66-11e9-85cc-4dc93cc30e6a.PNG)
+
+Notice Age is significant now and Adjusted R-squared went up compare to Adjusted R_squared when all Ind.variables were added to the model. This will be the final model to predict on test data
+
+# Side Note
+Adding one of the predictor from Age & FrancePop makes the predictors in Linear Model significant but adding both makes most of the predictors insignificant. This is because Age & FrancePop are highly correlated. Multicollinearity issue!
+
+Correlation among variables of Wine data
+![correlation wine data](https://user-images.githubusercontent.com/46609482/59315517-e6eb9200-8c6e-11e9-8002-c9d51ca34ddb.PNG)
+
+# Predicting on Test Data
+
+predicted on 2 observations
+
+       1        2 
+6.768925 6.684910 
+
+Computed SSE(i.e. sum((actual-predicted)^2) & SST(i.e. sum((actual-average of dependent variable)^2)
+R^2 = 1 - (SSE/SST) = 0.7944278
+
+
+
 
