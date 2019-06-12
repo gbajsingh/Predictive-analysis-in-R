@@ -60,7 +60,8 @@ predicted on 2 observations
        1        2 
 6.768925 6.684910 
 
-Computed SSE(i.e. sum((actual-predicted)^2) & SST(i.e. sum((actual-average of dependent variable)^2)
+Computed R^2 by computing SSE(i.e. sum((actual-predicted)^2) & SST(i.e. sum((actual-average of dependent variable)^2)
+
 R^2 = 1 - (SSE/SST) = 0.7944278
 
 
