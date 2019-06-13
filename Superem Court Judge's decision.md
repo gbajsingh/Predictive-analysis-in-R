@@ -1,3 +1,4 @@
+# *Predicting supereme court's judge Stevens decision*
 # Structure of data
 ![str of data](https://user-images.githubusercontent.com/46609482/59403903-7ec5aa80-8d59-11e9-8284-a96d4c3cdaca.PNG)
 
