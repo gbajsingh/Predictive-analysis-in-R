@@ -38,7 +38,7 @@ Around the thresh-hold value of 3.0 seems like a good value with reasonable fals
 # Computed AUC(Area under the Curve) to asses the strength of the model on training set
 ![auc predTrain](https://user-images.githubusercontent.com/46609482/59390940-8d936980-8d27-11e9-84fc-74c1d6db9162.PNG)
 
-AUC of 0.77 means the model will predict the right outcome 77% of times as compare to purely guessing which would've AUC of 50%[since "0" & "1" are 2 outcomes, guessing would've 1/2 or 50-50 chance]
+AUC of 0.77 means given a random observation the model has 77% of chance in predicting right outcome as compare to purely guessing which would've had 50% of chance since "0" & "1" are 2 outcomes.
 
 # Now predicting "Poor Care"(the dependent variable) on the test set
 
@@ -48,7 +48,7 @@ confusion matrix of predicted values vs actual outcomes of test data at 0.3 thre
 # Computed AUC(Area under the Curve) to asses the strength of the model on the test set
 ![auc on test set](https://user-images.githubusercontent.com/46609482/59391678-ecf27900-8d29-11e9-802b-22172058c9a0.PNG)
 
-AUC of 0.79 means the model will predict the right outcome 79% of times as compare to purely guessing which would've AUC of 50%[since "0" & "1" are 2 outcomes, guessing would've 1/2 or 50-50 chance]
+AUC of 0.79 means given a random observation the model has 79% of chance in predicting right outcome as compare to purely guessing which would've had 50% of chance since "0" & "1" are 2 outcomes.
 
 
 
