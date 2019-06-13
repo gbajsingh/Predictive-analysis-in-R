@@ -111,8 +111,7 @@ table(Test$Reverse, PredictForest)
   
 # accuracy of this model
 (43+73)/(43+34+20+73)
-[1] 0.6823529 
-# so 68% accuracy  compare to CART model that had 65% and Logistic regression model that had 66% and baseline model that had 54%
+
 
 
 
