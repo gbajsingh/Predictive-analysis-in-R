@@ -57,7 +57,7 @@ Confusion matrix to asses the accuracy of randomForest model
 
 # CART model with cross validation(based on same 6 predictors/regressors) trained on training set
 
-*Notice in traditional CART model number of splits in tree depended on the value of parmeter called "minimum bucket size" and was decided by what seemed reasonable.
+*Notice in traditional CART model number of splits in tree depended on the value of parmeter called "minimum bucket size" and was decided by what seemed reasonable.*
 
 *But to build this CART model, cross-validation is performed to slect the optimal value for parameter called "complexity parameter" instead of " minimum bucket size".*
 
