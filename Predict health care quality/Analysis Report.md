@@ -17,6 +17,9 @@ therefore, baseline model has an accuracy of 75% in predicting value "0" and 25%
 
 Notice both of the predictors/regressors are significant in the model.
 
+# Predicting on the training set
+![pred train](https://user-images.githubusercontent.com/46609482/59570133-4e775800-9048-11e9-91ff-6da366e20897.PNG)
+
 # Logistic regression model does better than Baseline model in predicting value"1" or patient who recieved poor care
 
 Comparing actual outcome of Poor care Variable(i.e. 0 & 1) with predicted probabilities to see the average of all the probalilities in predicting value"1" & "0".
