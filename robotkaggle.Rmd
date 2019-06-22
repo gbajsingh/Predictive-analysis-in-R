@@ -1,0 +1,171 @@
+---
+title: "Predicting floor type"
+output: html
+---
+
+## libraries
+```{r}
+library(dplyr)
+library(ggplot2)
+library(rpart)
+library(rpart.plot)
+library(randomForest)
+library(gridExtra)
+```
+
+
+## Data
+```{r}
+train_X = read.csv("X_train.csv")
+train_y = read.csv("y_train.csv")
+test = read.csv("X_test.csv")
+```
+
+## Summary and Structure
+
+```{r}
+str(train_X)
+```
+```{r}
+summary(train_X)
+```
+
+```{r}
+str(train_y)
+```
+
+```{r}
+summary(train_y)
+```
+
+## Summary of Predicting Variable
+```{r}
+summary(train_y$surface)
+```
+
+Frequency of predicting variable
+```{r}
+ggplot(data=train_y, aes(x=surface, fill=surface))+ stat_count()+
+  labs(title = "Freq. of predicting variable(surfaces)",
+       x = "Surface", 
+       y = "Count")+ scale_y_continuous(c(0,1000)) + 
+  theme(axis.text.x = element_text(angle = 45, 
+                                   hjust = 1,
+                                   vjust = 1))
+```
+
+## Feature Engineering
+
+First taking out non regressor/columns/attributes out of training and test set
+```{r}
+train_X = subset(train_X,select=-c(measurement_number,row_id))
+test = subset(test,select=-c(row_id,measurement_number))
+```
+
+Grouping rows by "series_id" (since there are 128 measurments for each series) to obtain min, max, mean & standar dev. to use in the model
+```{r}
+train_final <-train_X %>% group_by(series_id) %>% summarise_all(list(min=min,max=max,mean=mean,sd=sd))
+
+test_final<- test %>% group_by(series_id) %>% summarise_all(list(min=min,max=max,mean=mean,sd=sd))
+```
+
+Now number of rows and columns in the new training and test dataframes
+```{r}
+dim(train_final)
+dim(test_final)
+```
+
+## Merge "train_y"" dataset(containing predicting variable i.e. surface) with "train_final"" to create a model
+
+Merging datasets by key " series_id"
+```{r}
+train_final = merge(train_final, train_y, by.x = "series_id", by.y = "series_id", all = TRUE)
+```
+
+Also, setting "group_id" to NULL since it won't be used in the model
+```{r}
+train_final$group_id = NULL
+```
+
+
+
+
+## Visualizing mean velocity in X, Y, Z on all the surfaces
+```{r}
+ggplot(train_final, aes(x= surface, y=angular_velocity_X_mean, fill = surface)) + coord_cartesian(ylim = c(-0.05, 0.05)) +
+geom_boxplot() + theme(axis.text.x = element_text(angle = 45, 
+                                   hjust = 1,
+                                   vjust = 1))
+```
+
+```{r}
+ggplot(train_final, aes(x= surface, y=angular_velocity_Y_mean, fill = surface)) + coord_cartesian(ylim = c(-0.10, 0.10)) +
+geom_boxplot() + theme(axis.text.x = element_text(angle = 45, 
+                                   hjust = 1,
+                                   vjust = 1))
+```
+```{r}
+ggplot(train_final, aes(x= surface, y=angular_velocity_Z_mean, fill = surface)) + coord_cartesian(ylim = c(-0.50, 0.50)) +
+geom_boxplot() + theme(axis.text.x = element_text(angle = 45, 
+                                   hjust = 1,
+                                   vjust = 1))
+```
+
+## Visualizing acceleration mean in X, Y, Z on all the surfaces
+
+```{r}
+ggplot(train_final, aes(x= surface, y=linear_acceleration_X_mean, fill = surface)) + coord_cartesian(ylim = c(-0.5, 0.5)) +
+geom_boxplot() + theme(axis.text.x = element_text(angle = 45, 
+                                   hjust = 1,
+                                   vjust = 1))
+```
+
+```{r}
+ggplot(train_final, aes(x= surface, y=linear_acceleration_Y_mean, fill = surface)) + coord_cartesian(ylim = c(2, 4)) +
+geom_boxplot() + theme(axis.text.x = element_text(angle = 45, 
+                                   hjust = 1,
+                                   vjust = 1))
+```
+```{r}
+ggplot(train_final, aes(x= surface, y=linear_acceleration_Z_mean, fill = surface)) + coord_cartesian(ylim = c(-9.5, -9.25)) +
+geom_boxplot() + theme(axis.text.x = element_text(angle = 45, 
+                                   hjust = 1,
+                                   vjust = 1))
+```
+
+## Random Forest Model
+
+Tried different nodesize values to get the optimal value for highest accuracy of the model. Final nodesize value is 5
+```{r}
+model = randomForest(surface~.-series_id,data=train_final,ntree=200,nodesize=5)
+```
+
+Predicting on trainig set
+```{r}
+pred= predict(model, type="class")
+table(train_final$surface, pred)
+```
+
+
+Accuracy of model
+```{r}
+(155+683+293+13+271+678+269+459+532)/nrow(train_final)
+```
+
+## Predicitng on Test set
+```{r}
+surface = predict(model, newdata = test_final, type = "class")
+```
+
+Saving predicted results to a new data frame & changing to appropriate column names
+```{r}
+Submission = data.frame(test_final$series_id, surface)
+colnames(Submission)[colnames(Submission)=="test_final.series_id"] <- "series_id"
+```
+
+Writing to a csv  for Kaggle competition submission
+```{r}
+write.csv(Submission,"Final_submission.csv",row.names = FALSE)
+```
+
+Accuracy on test set upon submitting: 0.6873 or 69%
