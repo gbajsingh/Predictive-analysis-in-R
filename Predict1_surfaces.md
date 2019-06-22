@@ -8,62 +8,20 @@ libraries
 library(dplyr)
 ```
 
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
 ``` r
 library(ggplot2)
 library(rpart)
 library(rpart.plot)
 ```
 
-    ## Warning: package 'rpart.plot' was built under R version 3.5.3
 
 ``` r
 library(randomForest)
 ```
 
-    ## Warning: package 'randomForest' was built under R version 3.5.3
+    
 
-    ## randomForest 4.6-14
 
-    ## Type rfNews() to see new features/changes/bug fixes.
-
-    ## 
-    ## Attaching package: 'randomForest'
-
-    ## The following object is masked from 'package:ggplot2':
-    ## 
-    ##     margin
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     combine
-
-``` r
-library(gridExtra)
-```
-
-    ## Warning: package 'gridExtra' was built under R version 3.5.3
-
-    ## 
-    ## Attaching package: 'gridExtra'
-
-    ## The following object is masked from 'package:randomForest':
-    ## 
-    ##     combine
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     combine
 
 Data
 ----
