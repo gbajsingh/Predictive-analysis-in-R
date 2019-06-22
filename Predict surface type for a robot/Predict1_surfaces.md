@@ -115,8 +115,11 @@ summary(train_y$surface)
     ##                     21                    308                    732 
     ##             soft_tiles                  tiled                   wood 
     ##                    297                    514                    607
+*9 types of floor surfaces*
 
-Frequency of predicting variable
+
+
+## Frequency of predicting variable
 
 ``` r
 ggplot(data=train_y, aes(x=surface, fill=surface))+ stat_count()+
