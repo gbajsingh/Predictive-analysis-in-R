@@ -6,23 +6,13 @@ libraries
 
 ``` r
 library(dplyr)
-```
-
-``` r
 library(ggplot2)
 library(rpart)
 library(rpart.plot)
-```
-
-
-``` r
 library(randomForest)
 ```
 
     
-
-
-
 Data
 ----
 
@@ -139,7 +129,7 @@ ggplot(data=train_y, aes(x=surface, fill=surface))+ stat_count()+
                                    vjust = 1))
 ```
 
-![](Predict1_surfaces_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![unnamed-chunk-8-1](https://user-images.githubusercontent.com/46609482/59958409-2d08d880-945b-11e9-8cd7-a9fd08b9eb92.png)
 
 Feature Engineering
 -------------------
@@ -197,8 +187,7 @@ geom_boxplot() + theme(axis.text.x = element_text(angle = 45,
                                    hjust = 1,
                                    vjust = 1))
 ```
-
-![](Predict1_surfaces_files/figure-markdown_github/unnamed-chunk-14-1.png)
+![unnamed-chunk-14-1](https://user-images.githubusercontent.com/46609482/59958417-4742b680-945b-11e9-8eb6-8fa424b3c811.png)
 
 ``` r
 ggplot(train_final, aes(x= surface, y=angular_velocity_Y_mean, fill = surface)) + coord_cartesian(ylim = c(-0.10, 0.10)) +
@@ -207,7 +196,8 @@ geom_boxplot() + theme(axis.text.x = element_text(angle = 45,
                                    vjust = 1))
 ```
 
-![](Predict1_surfaces_files/figure-markdown_github/unnamed-chunk-15-1.png)
+![unnamed-chunk-15-1](https://user-images.githubusercontent.com/46609482/59958422-59245980-945b-11e9-80f3-c3ec154839e7.png)
+
 
 ``` r
 ggplot(train_final, aes(x= surface, y=angular_velocity_Z_mean, fill = surface)) + coord_cartesian(ylim = c(-0.50, 0.50)) +
@@ -216,7 +206,8 @@ geom_boxplot() + theme(axis.text.x = element_text(angle = 45,
                                    vjust = 1))
 ```
 
-![](Predict1_surfaces_files/figure-markdown_github/unnamed-chunk-16-1.png)
+![unnamed-chunk-16-1](https://user-images.githubusercontent.com/46609482/59958427-66414880-945b-11e9-814f-56d6a07c0f78.png)
+
 
 Visualizing acceleration mean in X, Y, Z on all the surfaces
 ------------------------------------------------------------
@@ -228,7 +219,8 @@ geom_boxplot() + theme(axis.text.x = element_text(angle = 45,
                                    vjust = 1))
 ```
 
-![](Predict1_surfaces_files/figure-markdown_github/unnamed-chunk-17-1.png)
+![unnamed-chunk-17-1](https://user-images.githubusercontent.com/46609482/59958428-748f6480-945b-11e9-8a1e-68bd92cbef55.png)
+
 
 ``` r
 ggplot(train_final, aes(x= surface, y=linear_acceleration_Y_mean, fill = surface)) + coord_cartesian(ylim = c(2, 4)) +
@@ -237,7 +229,7 @@ geom_boxplot() + theme(axis.text.x = element_text(angle = 45,
                                    vjust = 1))
 ```
 
-![](Predict1_surfaces_files/figure-markdown_github/unnamed-chunk-18-1.png)
+![unnamed-chunk-18-1](https://user-images.githubusercontent.com/46609482/59958432-7f49f980-945b-11e9-88d4-ef86cd4b7a63.png)
 
 ``` r
 ggplot(train_final, aes(x= surface, y=linear_acceleration_Z_mean, fill = surface)) + coord_cartesian(ylim = c(-9.5, -9.25)) +
@@ -246,7 +238,7 @@ geom_boxplot() + theme(axis.text.x = element_text(angle = 45,
                                    vjust = 1))
 ```
 
-![](Predict1_surfaces_files/figure-markdown_github/unnamed-chunk-19-1.png)
+![unnamed-chunk-19-1](https://user-images.githubusercontent.com/46609482/59958437-8f61d900-945b-11e9-9ba0-4f6699d91fb3.png)
 
 Random Forest Model
 -------------------
