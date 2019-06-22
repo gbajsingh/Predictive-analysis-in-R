@@ -152,7 +152,9 @@ train_final <-train_X %>% group_by(series_id) %>% summarise_all(list(min=min,max
 test_final<- test %>% group_by(series_id) %>% summarise_all(list(min=min,max=max,mean=mean,sd=sd))
 ```
 
-Now number of rows and columns in the new training and test dataframes
+
+
+Now number of rows & columns in the new training and test dataframes are:
 
 ``` r
 dim(train_final)
@@ -165,6 +167,8 @@ dim(test_final)
 ```
 
     ## [1] 3816   41
+
+
 
 Merge "train\_y"" dataset(containing predicting variable i.e. surface) with "train\_final"" to create a model
 -------------------------------------------------------------------------------------------------------------
