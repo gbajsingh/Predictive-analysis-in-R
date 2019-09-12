@@ -310,17 +310,4 @@ Predicitng on Test set
 surface = predict(model, newdata = test_final, type = "class")
 ```
 
-Saving predicted results to a new data frame & changing to appropriate column names
-
-``` r
-Submission = data.frame(test_final$series_id, surface)
-colnames(Submission)[colnames(Submission)=="test_final.series_id"] <- "series_id"
-```
-
-Writing to a csv for Kaggle competition submission
-
-``` r
-write.csv(Submission,"Final_submission.csv",row.names = FALSE)
-```
-
-Accuracy on test set upon submitting: 0.6873 or 69%
+Accuracy of the model on test set: 0.6873 or 69%
