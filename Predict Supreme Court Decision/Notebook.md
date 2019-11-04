@@ -54,7 +54,7 @@ Test =  subset(stevens, split == FALSE)
 
 # Training models
 
-Predicting variable *Reverse* by Circuit, Issue, Petitioner, Respondent, LowerCourt & Unconstitutional
+Train CART, Random Forest & CART with cross-validation to predict the outcome of variable *Reverse* by using regressors *Circuit*, *Issue*, *Petitioner*, *Respondent*, *LowerCourt* & *Unconstitutional*
 
 *__CART__*
 
@@ -86,20 +86,25 @@ StevensForest = randomForest(Reverse ~ Circuit + Issue + Petitioner + Respondent
 
 ```r
 # setting the number of folds and the grid to perform cross-validation
-
 numFolds = trainControl(method="cv",number=10)
 cpGrid = expand.grid(.cp=seq(0.01,0.5,0.01))
+
 # performing cross validation
 train(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data=Train, method="rpart", trControl=numFolds, tuneGrid=cpGrid)
-
 ```
+![image](https://user-images.githubusercontent.com/46609482/68167620-ee138500-ff1a-11e9-9bb8-ff877749d0c5.png)
 
-# Predicting on the test set using the CART model
+```r
+StevensTreeCV = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data=Train, method="class", cp=0.17)
+```
+# Predicting on the test set using trained models
 
 confusion matrix to asses the accuracy of CART model
 
 ![CART on testSet](https://user-images.githubusercontent.com/46609482/59466136-600af680-8de1-11e9-8d07-b3f168151119.PNG)
 
+Tree plot with cross-validation method
+![StevensTreeCV](https://user-images.githubusercontent.com/46609482/59469752-9305b800-8dea-11e9-8873-ab6b5c523c96.PNG)
 # Predicting on the test set using Random forest model based on same 6 predictors/regressors
 
 
@@ -121,8 +126,7 @@ Confusion matrix to asses the accuracy of randomForest model
 
 *A larger cp value leads to smaller tree(i.e. less splits).*
 
-                                            Tree plot with cross-validation method
-![StevensTreeCV](https://user-images.githubusercontent.com/46609482/59469752-9305b800-8dea-11e9-8873-ab6b5c523c96.PNG)
+                                            
 
 This CART with cross-validation model has only one split. Which is if the lower court decision is liberal or not?
 
