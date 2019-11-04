@@ -2,27 +2,27 @@
 # Structure of data
 ![str of data](https://user-images.githubusercontent.com/46609482/59403903-7ec5aa80-8d59-11e9-8284-a96d4c3cdaca.PNG)
 
-Explaining some of the variables/attributes:
+# Variables/Attributes explained
 
-Circuit: Circuit court of origin.(1st-11th, DC, FED)
+*__Circuit__*: Circuit court of origin (1st-11th, DC, FED)
 
-Issue: Issue area of case(e.g. civil rights, federal taxation)
+*__Issue__*: Issue area of case(e.g. civil rights, federal taxation)
 
-Petitioner: Type of petitioner(eg. US, an employer)
+*__Petitioner__*: Type of petitioner(eg. US, an employer)
 
-Respondant: Type of respondent(eg. US, an employer)
+*__Respondant__*: Type of respondent(eg. US, an employer)
 
-LowerCourt: Idealogical direction of lower court decison(conservative vs liberal)
+*__LowerCourt__*: Idealogical direction of lower court decison(conservative vs liberal)
 
-Unconstitutional: Whether petitioner argued that law/practice was onconstitutional. "0" if not & "1" if argued
+*__Unconstitutional__*: Whether petitioner argued that law/practice was onconstitutional. "0" if not & "1" if argued
 
-Reverse(also the variable to predict): "1" if judge has turned/reverse the lower court's decision, "0" if affirmed.
+*__Reverse__*(also the variable to predict): "1" if judge has turned/reverse the lower court's decision, "0" if affirmed.
 
 # Summary of data
 
 ![summary of Stevens](https://user-images.githubusercontent.com/46609482/59405675-28a83580-8d60-11e9-9d85-fee4f000ec51.PNG)
 
-# *Notice data has been randomally splitted into training and test set by split ratio of 0.7*
+*Notice data has been randomally splitted into training and test set by split ratio of 0.7*
 
 # CART(Classification and regression Tree) model(based on 6 predictors/regressors) trained on the training set to predict the variable "Reverse"
 
