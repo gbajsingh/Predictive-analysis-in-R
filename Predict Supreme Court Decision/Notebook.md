@@ -52,23 +52,27 @@ Train =  subset(stevens, split == TRUE)
 Test =  subset(stevens, split == FALSE)
 ```
 
-# CART(Classification and regression Tree) model(based on 6 predictors/regressors) trained on the training set to predict the variable "Reverse"
+# Training models
+*__CART__*
 ```r
 StevensTree = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data=Train, method="class", minbucket=25)
 ```
-
-Predictors: Circuit, Issue, Petitioner, Respondent, LowerCourt & Unconstitutional
+Predicting variable *Reverse* by Circuit, Issue, Petitioner, Respondent, LowerCourt & Unconstitutional
 
 
                                                 Tree plot
 
 ![StevensTree](https://user-images.githubusercontent.com/46609482/59405165-51c7c680-8d5e-11e9-81c0-013d8f01fdbb.PNG)
 
-*Notice the number of splits in the tree depends on the parameter called "minimum bucket size" when building the model.*
+*Notice the number of splits in the tree depends on the parameter called "minimum bucket size" when building the model.
+A smaller minbucket size means more splits/subsets.(too small limit can also overfit the predictions on test data)
+A bigger minbucket size means fewer splits/subsets.(too large limit can have poor accuracy on test data)*
 
-*A smaller minbucket size means more splits/subsets(too small limit can also overfit the predictions on test data)*
-
-*A bigger minbucket size means fewer splits/subsets(too large limit can have poor accuracy on test data)*
+*__Random Forest__*
+```r
+StevensForest = randomForest(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data=Train, nodesize=25, ntree=200)
+```
+*Notice the random forest method was designed to improve prediction accuracy of CART(classification And Regression Tree) model by building many CART trees though less interpretable. To make a prediction on a new observation, each tree votes on the outcome and picks the outcome that receives the majority of votes*
 
 # Predicting on the test set using the CART model
 
@@ -78,7 +82,7 @@ confusion matrix to asses the accuracy of CART model
 
 # Predicting on the test set using Random forest model based on same 6 predictors/regressors
 
-*Notice the random forest method was designed to improve prediction accuracy of CART(classification And Regression Tree) model by building many CART trees though less interpretable. To make a prediction on a new observation, each tree votes on the outcome and we pick the outcome that receives the majority of votes*
+
 
 
 Confusion matrix to asses the accuracy of randomForest model
