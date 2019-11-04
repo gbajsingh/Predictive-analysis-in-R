@@ -4,19 +4,19 @@
 
 # Variables/Attributes explained
 
-*__Circuit__*: Circuit court of origin (1st-11th, DC, FED)
+*__Circuit__* : Circuit court of origin (1st-11th, DC, FED)
 
-*__Issue__*: Issue area of case(e.g. civil rights, federal taxation)
+*__Issue__* : Issue area of case(e.g. civil rights, federal taxation)
 
-*__Petitioner__*: Type of petitioner(eg. US, an employer)
+*__Petitioner__* : Type of petitioner(eg. US, an employer)
 
-*__Respondant__*: Type of respondent(eg. US, an employer)
+*__Respondant__* : Type of respondent(eg. US, an employer)
 
-*__LowerCourt__*: Idealogical direction of lower court decison(conservative vs liberal)
+*__LowerCourt__* : Idealogical direction of lower court decison(conservative vs liberal)
 
-*__Unconstitutional__*: Whether petitioner argued that law/practice was onconstitutional. "0" if not & "1" if argued
+*__Unconstitutional__* : Whether petitioner argued that law/practice was onconstitutional. "0" if not & "1" if argued
 
-*__Reverse__*(also the variable to predict): "1" if judge has turned/reverse the lower court's decision, "0" if affirmed.
+*__Reverse__* : "1" if judge has turned/reverse the lower court's decision, "0" if affirmed (also the variable to predict)
 
 # Summary of data
 
