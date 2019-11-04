@@ -53,26 +53,46 @@ Test =  subset(stevens, split == FALSE)
 ```
 
 # Training models
+
+Predicting variable *Reverse* by Circuit, Issue, Petitioner, Respondent, LowerCourt & Unconstitutional
+
 *__CART__*
+
 ```r
 StevensTree = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data=Train, method="class", minbucket=25)
 ```
-Predicting variable *Reverse* by Circuit, Issue, Petitioner, Respondent, LowerCourt & Unconstitutional
+*The parameter minbucket's size was decided by what seemed reasonable.
+
+A smaller size creates more splits/subsets.(Notice too small limit can also overfit the predictions on test data)
+
+A bigger size creates fewer splits/subsets.(Notice too large limit can have poor accuracy on test data)*
 
 
                                                 Tree plot
 
 ![StevensTree](https://user-images.githubusercontent.com/46609482/59405165-51c7c680-8d5e-11e9-81c0-013d8f01fdbb.PNG)
 
-*Notice the number of splits in the tree depends on the parameter called "minimum bucket size" when building the model.
-A smaller minbucket size means more splits/subsets.(too small limit can also overfit the predictions on test data)
-A bigger minbucket size means fewer splits/subsets.(too large limit can have poor accuracy on test data)*
+
 
 *__Random Forest__*
+
 ```r
 StevensForest = randomForest(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data=Train, nodesize=25, ntree=200)
 ```
-*Notice the random forest method was designed to improve prediction accuracy of CART(classification And Regression Tree) model by building many CART trees though less interpretable. To make a prediction on a new observation, each tree votes on the outcome and picks the outcome that receives the majority of votes*
+*The random forest method improves prediction accuracy by building many CART trees though less interpretable. Number of trees are set set to 200. Furhter each tree votes on the outcome and picks the outcome that receives the majority of votes. Nodesize is equivalent to minbucket.*
+
+*__CART with cross-validation__*
+*Cross-validation is performed to select the optimal value of "complexity parameter(cp)" instead of picking reasonable size for the " minbucket size"*
+
+```r
+# setting the number of folds and the grid to perform cross-validation
+
+numFolds = trainControl(method="cv",number=10)
+cpGrid = expand.grid(.cp=seq(0.01,0.5,0.01))
+# performing cross validation
+train(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data=Train, method="rpart", trControl=numFolds, tuneGrid=cpGrid)
+
+```
 
 # Predicting on the test set using the CART model
 
@@ -91,7 +111,7 @@ Confusion matrix to asses the accuracy of randomForest model
 
 68% accuracy compare to CART model that had 65% and baseline model that had 54%
 
-# CART model with cross validation(based on same 6 predictors/regressors) trained on training set
+# CART model with cross validation
 
 *Notice in traditional CART model number of splits in tree depended on the value of parmeter called "minimum bucket size" and was decided by what seemed reasonable.*
 
