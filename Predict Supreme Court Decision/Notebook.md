@@ -94,14 +94,16 @@ train(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst
 ```r
 StevensTreeCV = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data=Train, method="class", cp=0.17)
 ```
-# Predicting on the test set using trained models
+![StevensTreeCV](https://user-images.githubusercontent.com/46609482/59469752-9305b800-8dea-11e9-8873-ab6b5c523c96.PNG)
+
+# Predicting on the test set using above trained models
 
 confusion matrix to asses the accuracy of CART model
 
 ![CART on testSet](https://user-images.githubusercontent.com/46609482/59466136-600af680-8de1-11e9-8d07-b3f168151119.PNG)
 
 Tree plot with cross-validation method
-![StevensTreeCV](https://user-images.githubusercontent.com/46609482/59469752-9305b800-8dea-11e9-8873-ab6b5c523c96.PNG)
+
 # Predicting on the test set using Random forest model based on same 6 predictors/regressors
 
 
