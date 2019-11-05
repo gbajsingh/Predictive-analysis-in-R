@@ -96,18 +96,26 @@ StevensTreeCV = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + Lowe
 ```
 ![StevensTreeCV](https://user-images.githubusercontent.com/46609482/59469752-9305b800-8dea-11e9-8873-ab6b5c523c96.PNG)
 
+This CART with cross-validation model has only one split. Which is if the lower court decision is liberal or not?
+
 # Predicting on the test set using above trained models
 
-confusion matrix to asses the accuracy of CART model
+*__CART__*
+
+```r
+predictCART = predict(StevensTree, newdata=Test, type="class")
+```
+
+Confusion matrix to asses the accuracy of CART model
 
 ![CART on testSet](https://user-images.githubusercontent.com/46609482/59466136-600af680-8de1-11e9-8d07-b3f168151119.PNG)
 
-Tree plot with cross-validation method
 
-# Predicting on the test set using Random forest model based on same 6 predictors/regressors
+*__Random Forest__*
 
-
-
+```r
+PredictForest = predict(StevensForest, newdata=Test)
+```
 
 Confusion matrix to asses the accuracy of randomForest model
 
@@ -115,26 +123,17 @@ Confusion matrix to asses the accuracy of randomForest model
 
 68% accuracy compare to CART model that had 65% and baseline model that had 54%
 
-# CART model with cross validation
+*__CART model with cross validation__*
 
-*Notice in traditional CART model number of splits in tree depended on the value of parmeter called "minimum bucket size" and was decided by what seemed reasonable.*
+```r
+PredictCV = predict(StevensTreeCV, newdata = Test, type="class")
+```
 
-*But to build this CART model, cross-validation is performed to slect the optimal value for parameter called "complexity parameter" instead of " minimum bucket size".*
-
-*A smaller cp value leads to bigger tree(i.e. more splits) just like smaller minbucket size.*
-
-*A larger cp value leads to smaller tree(i.e. less splits).*
-
-                                            
-
-This CART with cross-validation model has only one split. Which is if the lower court decision is liberal or not?
-
-# Predicting on test set with cross-validation CART model
-
-confusion matrix to asses the accuracy
+Confusion matrix to asses the accuracy
 
 ![predictCV](https://user-images.githubusercontent.com/46609482/59470002-4ff81480-8deb-11e9-894e-27b2ef5167eb.PNG)
 
+# Conclusion
 72% accuracy is a great improvement over randomForest model that had 68% accuracy and CART model(without cross-validation) that had 65% accuracy and baseline model that had 54% accuracy.
 
 In conclusion, the model with best accuracy only had one split(i.e. lower court decision is liberal or no?) which reminds that sometimes simplest models are the best.
