@@ -61,11 +61,7 @@ Train CART, Random Forest & CART with cross-validation to predict the outcome of
 ```r
 StevensTree = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + LowerCourt + Unconst, data=Train, method="class", minbucket=25)
 ```
-*The parameter minbucket's size was decided by what seemed reasonable.
-
-A smaller size creates more splits/subsets.(Notice too small limit can also overfit the predictions on test data)
-
-A bigger size creates fewer splits/subsets.(Notice too large limit can have poor accuracy on test data)*
+*The parameter minbucket's size was decided by what seemed reasonable. A smaller size creates more splits/subsets(Notice too small limit can also overfit the predictions on test data). A bigger size creates fewer splits/subsets.(Notice too large limit can have poor accuracy on test data).*
 
 
                                                 Tree plot
@@ -82,6 +78,7 @@ StevensForest = randomForest(Reverse ~ Circuit + Issue + Petitioner + Respondent
 *The random forest method improves prediction accuracy by building many CART trees though less interpretable. Number of trees are set set to 200. Furhter each tree votes on the outcome and picks the outcome that receives the majority of votes. Nodesize is equivalent to minbucket.*
 
 *__CART with cross-validation__*
+
 *Cross-validation is performed to select the optimal value of "complexity parameter(cp)" instead of picking reasonable size for the " minbucket size"*
 
 ```r
