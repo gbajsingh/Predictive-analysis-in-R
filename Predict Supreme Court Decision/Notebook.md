@@ -2,6 +2,7 @@
 1. Analyze judge Stevens (1 of the 9 supreme court judges) 1994-2001 decision data.
 2. Apply and compare decision tree, CART & random forest machine learning models on data to accurately predict the decison outcome.
 
+
 # Required libraries
 
 ```r
@@ -10,6 +11,8 @@ library(rpart)
 library(caret)
 library(e1071)
 ```
+
+
 # Reading data
 
 ```r
@@ -17,11 +20,15 @@ stevens = read.csv("stevens.csv")
 ```
 *__Reference__* : http://scdb.wustl.edu/data.php
 
+
+
 # Structure of data
 ```r
 str(stevens)
 ```
 ![str of data](https://user-images.githubusercontent.com/46609482/59403903-7ec5aa80-8d59-11e9-8284-a96d4c3cdaca.PNG)
+
+
 
 # Variables/Attributes explained
 
@@ -39,11 +46,15 @@ str(stevens)
 
 *__Reverse__* : "1" if judge has turned/reverse the lower court's decision, "0" if affirmed (also the variable to predict)
 
+
+
 # Summary of data
 ```r
 summary(stevens)
 ```
 ![summary of Stevens](https://user-images.githubusercontent.com/46609482/59405675-28a83580-8d60-11e9-9d85-fee4f000ec51.PNG)
+
+
 
 # Split the data into train and test 
 ```r
@@ -51,6 +62,8 @@ split = sample.split(stevens$Reverse, SplitRatio = 0.7)
 Train =  subset(stevens, split == TRUE)
 Test =  subset(stevens, split == FALSE)
 ```
+
+
 
 # Training models
 
@@ -98,6 +111,8 @@ StevensTreeCV = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + Lowe
 
 This CART with cross-validation model has only one split. Which is if the lower court decision is liberal or not?
 
+
+
 # Predicting on the test set using above trained models
 
 *__CART__*
@@ -132,6 +147,7 @@ PredictCV = predict(StevensTreeCV, newdata = Test, type="class")
 Confusion matrix to asses the accuracy
 
 ![predictCV](https://user-images.githubusercontent.com/46609482/59470002-4ff81480-8deb-11e9-894e-27b2ef5167eb.PNG)
+
 
 # Conclusion
 72% accuracy is a great improvement over randomForest model that had 68% accuracy and CART model(without cross-validation) that had 65% accuracy and baseline model that had 54% accuracy.
