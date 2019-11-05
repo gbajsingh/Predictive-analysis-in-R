@@ -109,7 +109,7 @@ StevensTreeCV = rpart(Reverse ~ Circuit + Issue + Petitioner + Respondent + Lowe
 ```
 ![StevensTreeCV](https://user-images.githubusercontent.com/46609482/59469752-9305b800-8dea-11e9-8873-ab6b5c523c96.PNG)
 
-This CART with cross-validation model has only one split. Which is if the lower court decision is liberal or not?
+This CART with cross-validation model has only one split of whether the decision is liberal or not.
 
 
 
