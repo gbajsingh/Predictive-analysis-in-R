@@ -18,7 +18,7 @@ library(e1071)
 ```r
 stevens = read.csv("stevens.csv")
 ```
-*__Reference__* : http://scdb.wustl.edu/data.php
+*Reference* : http://scdb.wustl.edu/data.php
 
 
 
