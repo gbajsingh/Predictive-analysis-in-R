@@ -1,6 +1,6 @@
 # Objective of the notebook
 1. Analyze judge Stevens (1 of the 9 supreme court judges) 1994-2001 decision data.
-2. Apply and compare decision tree, CART & random forest machine learning models on data to accurately predict the decison outcome.
+2. Apply and compare CART, random forest * CART with cross-validation machine learning models on data to accurately predict the decison outcome.
 
 
 # Required libraries
