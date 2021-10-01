@@ -67,7 +67,9 @@ Test =  subset(stevens, split == FALSE)
 
 # Training models
 
-Train CART, Random Forest & CART with cross-validation to predict the outcome of variable *Reverse* by using regressors *Circuit*, *Issue*, *Petitioner*, *Respondent*, *LowerCourt* & *Unconstitutional*
+CART:  A Classification and Regression tree model that 
+Random Forest: A model with many variations of CART models that votes on majority to decide outcome.
+CART with cross-validation
 
 *__CART__*
 
